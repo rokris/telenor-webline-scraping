@@ -1,5 +1,5 @@
 # Temp app files
-export_telenor_webline.csv
+*.csv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
