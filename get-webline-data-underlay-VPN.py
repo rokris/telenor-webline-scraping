@@ -16,8 +16,8 @@ payload = {
     "id_vpn": "1115925",
     "type": "partner",
     "cmd": "html_customer_vpn",
-    "sort": "SiteId"
-    }
+    "sort": "SiteId",
+}
 
 export_path = "./export_telenor_webline_underlay_vpn.csv"
 

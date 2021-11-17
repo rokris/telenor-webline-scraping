@@ -18,7 +18,7 @@ payload = {
     "key": "id_customer",
     "cmd": "mvpnlist_region",
     "county": "all",
-    "sort": "SiteId"
+    "sort": "SiteId",
 }
 
 export_path = "./export_telenor_webline_all.csv"
