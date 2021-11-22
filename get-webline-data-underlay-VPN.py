@@ -8,7 +8,6 @@ def main():
     base_url = "https://webline.telenor.no/mod-perl/webline"
     cookies = {"authsession": authsession}
 
-
     # Underlay VPN
     payload = {
         "wlkid": "3633215",
@@ -37,6 +36,7 @@ def main():
     df["Site Id"] = df["Site Id"].map("{:.0f}".format)
     df = df.astype(str)
     df.to_csv(export_path, encoding="utf-8", index=False)
+
 
 if __name__ == '__main__':
     main()
