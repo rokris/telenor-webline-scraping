@@ -40,6 +40,5 @@ def main():
     df = df.astype(str)
     df.to_csv(export_path, encoding="utf-8", index=False)
 
-
 if __name__ == '__main__':
     main()
