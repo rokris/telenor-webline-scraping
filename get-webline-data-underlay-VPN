@@ -4,8 +4,8 @@ import requests
 from bs4 import BeautifulSoup
 
 BASE_URL = "https://webline.telenor.no/mod-perl/webline"
-EXPORT_PATH_CSV = "./export_telenor_webline_all.csv"
-EXPORT_PATH_JSON = "./export_telenor_webline_all.json"
+EXPORT_PATH_CSV = "./export_telenor_webline_underlay_vpn.csv"
+EXPORT_PATH_JSON = "./export_telenor_webline_underlay_vpn.json"
 
 def getJwt():
     while True:
@@ -27,13 +27,10 @@ def scrapeWebline():
     payload = {
         "wlkid": "3633215",
         "id_customer": "1825",
-        "View%20All": "Please%20wait...",
+        "Search": "Please%20wait...",
+        "id_vpn": "1115925",
         "type": "partner",
-        "table": "customer",
-        "id": "1825",
-        "key": "id_customer",
-        "cmd": "mvpnlist_region",
-        "county": "all",
+        "cmd": "html_customer_vpn",
         "sort": "SiteId",
     }
 
@@ -43,14 +40,14 @@ def scrapeWebline():
 def createDataset(result):
     # Create a nice Soup of the result
     soup = BeautifulSoup(result.content, "html5lib")
-    table = soup.find_all("table")[3]
+    table = soup.find_all("table")[4]
     
     # Put data into a Pandas DataFrame
     df = pd.read_html(str(table))
     df = df[0]
     df["Admin Status"] = df["Admin Status"].map("{:.0f}".format)
-    df["VPN Access Count"] = df["VPN Access Count"].map("{:.0f}".format)
-    df["Site ID"] = df["Site ID"].map("{:.0f}".format)
+    df["VPN Access ID"] = df["VPN Access ID"].map("{:.0f}".format)
+    df["Site Id"] = df["Site Id"].map("{:.0f}".format)
     df = df.astype(str)
     
     return df
