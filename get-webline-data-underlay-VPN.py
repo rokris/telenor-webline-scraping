@@ -39,7 +39,12 @@ def scrapeWebline():
         "sort": "SiteId",
     }
 
-    result = requests.post(BASE_URL, data=payload, cookies=cookies, stream=True)
+    result = requests.post(
+        BASE_URL,
+        data=payload,
+        cookies=cookies,
+        stream=True
+    )
     return result
 
 
@@ -47,7 +52,6 @@ def createDataset(result):
     # Create a nice Soup of the result
     soup = BeautifulSoup(result.content, "html5lib")
     table = soup.find_all("table")[4]
-    
     # Put data into a Pandas DataFrame
     df = pd.read_html(str(table))
     df = df[0]
