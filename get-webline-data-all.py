@@ -7,14 +7,15 @@ BASE_URL = "https://webline.telenor.no/mod-perl/webline"
 EXPORT_PATH_CSV = "./export_telenor_webline_all.csv"
 EXPORT_PATH_JSON = "./export_telenor_webline_all.json"
 
+
 def getJwt():
     while True:
         jwt_string = input("Access cookie: ")
         try:
             jwt.decode(
-                jwt_string, 
-                algorithms="HS256", 
-                key="", 
+                jwt_string,
+                algorithms="HS256",
+                key="",
                 options={"verify_exp": True, "verify_signature": False}
             )
         except:
@@ -40,9 +41,9 @@ def scrapeWebline():
     }
 
     result = requests.post(
-        BASE_URL, 
-        data=payload, 
-        cookies=cookies, 
+        BASE_URL,
+        data=payload,
+        cookies=cookies,
         stream=True
     )
     return result
