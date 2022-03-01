@@ -12,15 +12,17 @@ def getJwt():
         jwt_string = input("Access cookie: ")
         try:
             jwt.decode(
-                jwt_string, algorithms="HS256", 
+                jwt_string, 
+                algorithms="HS256", 
                 key="", 
                 options={"verify_exp": True, "verify_signature": False}
-                )
+            )
         except:
             print("Invalid JWT")
         else:
             return jwt_string
-        
+
+
 def scrapeWebline():
     # Get all VPN links
     cookies = {"authsession": getJwt()}
@@ -37,6 +39,7 @@ def scrapeWebline():
     result = requests.post(BASE_URL, data=payload, cookies=cookies, stream=True)
     return result
 
+
 def createDataset(result):
     # Create a nice Soup of the result
     soup = BeautifulSoup(result.content, "html5lib")
@@ -52,17 +55,19 @@ def createDataset(result):
     
     return df
 
+
 def main():
 
     # Get the date from Webline webserver
     result = scrapeWebline()
-    
+
     # Create Pandas dataset
     dataset = createDataset(result)
 
     # Export data to files
     dataset.to_csv(EXPORT_PATH_CSV, encoding="utf-8", index=False)
-    dataset.to_json(EXPORT_PATH_JSON, index=False, orient = 'table')
+    dataset.to_json(EXPORT_PATH_JSON, index=False, orient="table")
+
 
 if __name__ == "__main__":
     main()
