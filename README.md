@@ -1,7 +1,6 @@
 # Telenor-Webline scraping
 ## Webline authsession cookie
 >First get the cookie by loging in with your credentials and 2-factor and copy the cookie authsession:\<value> from the browser. <https://webline.telenor.no>
-> Change the value of authsession variable in the file *.py
 ---
 ## Reference
 ---
