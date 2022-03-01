@@ -42,7 +42,7 @@ def scrapeWebline():
         "key": "id_customer",
         "cmd": "mvpnlist_region",
         "county": "all",
-        "sort": "SiteId"
+        "sort": "SiteId",
     }
 
     result = requests.post(

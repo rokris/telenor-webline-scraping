@@ -39,7 +39,7 @@ def scrapeWebline():
         "id_vpn": "1115925",
         "type": "partner",
         "cmd": "html_customer_vpn",
-        "sort": "SiteId"
+        "sort": "SiteId",
     }
 
     result = requests.post(
