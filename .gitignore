@@ -1,6 +1,7 @@
 pyvenv.cfg
 .idea
 bin/
+.DS_Store
 
 # Temp app files
 *.csv
