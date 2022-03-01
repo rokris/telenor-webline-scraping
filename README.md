@@ -1,7 +1,7 @@
 # Telenor-Webline scraping
-(This application is tested with Python 3.10)
+This application is tested with Python 3.10
 ---
-## Preparation:
+## Preparation
 ### Webline authsession cookie
 >First get the cookie by loging in with your credentials and 2-factor and copy the cookie authsession:\<value> from the browser. <https://webline.telenor.no>
 ### Create a Python environment using Anaconda
@@ -9,7 +9,7 @@
 `conda activate py310`
 ### Install Python requirements
 >`pip install -r requirements.txt`
-## To start application:
+## To start application
 >`python get-webline-data-underlay-VPN.py`\
 or\
 `python get-webline-data-all.py`
