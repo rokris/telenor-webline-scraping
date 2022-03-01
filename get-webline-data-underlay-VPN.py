@@ -16,9 +16,11 @@ def getJwt():
                 jwt_string,
                 algorithms="HS256",
                 key="",
-                options={"verify_exp": True, "verify_signature": False}
+                options={"verify_exp": True, "verify_signature": False},
             )
-        except:
+        except jwt.ExpiredSignatureError:
+            print("JWT Expired")
+        except jwt.exceptions.DecodeError:
             print("Invalid JWT")
         else:
             return jwt_string
@@ -37,12 +39,7 @@ def scrapeWebline():
         "sort": "SiteId",
     }
 
-    result = requests.post(
-        BASE_URL,
-        data=payload,
-        cookies=cookies,
-        stream=True
-    )
+    result = requests.post(BASE_URL, data=payload, cookies=cookies, stream=True)
     return result
 
 
@@ -58,7 +55,6 @@ def createDataset(result):
     df["VPN Access ID"] = df["VPN Access ID"].map("{:.0f}".format)
     df["Site Id"] = df["Site Id"].map("{:.0f}".format)
     df = df.astype(str)
-    
     return df
 
 
