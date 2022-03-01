@@ -1,10 +1,6 @@
 # Telenor-Webline scraping
 (This application is tested with Python 3.10)
-
-
 ---
-
-
 ## Preparation:
 ### Webline authsession cookie
 >First get the cookie by loging in with your credentials and 2-factor and copy the cookie authsession:\<value> from the browser. <https://webline.telenor.no>
@@ -18,7 +14,6 @@
 >`python get-webline-data-underlay-VPN.py`\
 or\
 `python get-webline-data-all.py`
-
 ---
 ---
 ## Reference
