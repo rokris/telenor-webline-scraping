@@ -39,7 +39,12 @@ def scrapeWebline():
         "sort": "SiteId",
     }
 
-    result = requests.post(BASE_URL, data=payload, cookies=cookies, stream=True)
+    result = requests.post(
+        BASE_URL, 
+        data=payload, 
+        cookies=cookies, 
+        stream=True
+    )
     return result
 
 
