@@ -9,7 +9,6 @@
 `conda activate py310`
 ### Install Python requirements
 >`pip install -r requirements.txt`
-
 ## To start application:
 >`python get-webline-data-underlay-VPN.py`\
 or\
