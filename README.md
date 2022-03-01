@@ -1,19 +1,19 @@
 # Telenor-Webline-Scraping
 
-### Webline authsession cookie
+## Webline authsession cookie
 
 >First get the cookie by loging in with your credentials and 2-factor and copy the cookie authsession:\<value> from the browser. <https://webline.telenor.no>
 
-### Create a Python environment using Anaconda
+## Create a Python environment using Anaconda
 
 >`conda create --name py310 python=3.10'`\
 `conda activate py310`
 
-### Install Python requirements
+## Install Python requirements
 
 >`pip install -r requirements.txt`
 
-### To start application
+## To start application
 
 >`python get-webline-data-underlay-VPN.py`\
 or\
